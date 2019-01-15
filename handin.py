@@ -15,10 +15,17 @@ for measurement in seattle:
     year = int(split_date[0])
     rainfall_per_month[month-1] = value + rainfall_per_month[month-1]
 
-#print(rainfall_per_month)
+print(rainfall_per_month)
 rainfall_per_year = sum(rainfall_per_month)
-#print(rainfall_per_year)
+print(rainfall_per_year)
 import json
 with open("seattle.json", "w") as file:
   json.dump( rainfall_per_month, file, indent =4, sort_keys = True )
 
+#relative rainfall per month compared to year
+#lets try first for seattle, I only had time to make fractions out of it
+relative_rainfall = []
+for i in range(12): 
+    print(rainfall_per_month[i]/rainfall_per_year)
+
+print(relative_rainfall)

@@ -2,7 +2,7 @@ import json
 with open('precipitation.json') as f:
     precipitation_list = json.load(f)
 from collections import Counter
-#for all cities in total
+#for all cities in total, I misinterpreted the prompt so that's why I calculated the total rainfall in all cities
 
 
 seattle=[]
@@ -26,4 +26,13 @@ for measurement in precipitation_list:
 	    sandiego.append(measurement['value'])
 sum_sandiego = sum(sandiego)
 cities = [sum_seattle, sum_cincinnati, sum_maui, sum_sandiego]
-print(cities)
+sum_cities = sum(cities)
+print(sum_cities)
+
+rainfall_per_month = [0]*12
+for measurement in cities:
+    split_date = measurement['date'].split("-")
+    value = measurement['value']
+    month= int(split_date[1])
+    year = int(split_date[0])
+    rainfall_per_month[month-1] = value + rainfall_per_month[month-1]
