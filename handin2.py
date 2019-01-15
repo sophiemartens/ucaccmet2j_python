@@ -1,3 +1,4 @@
+#Exercise 2 part 1
 import json
 with open('precipitation.json') as f:
     precipitation_list = json.load(f)

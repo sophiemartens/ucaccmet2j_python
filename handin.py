@@ -1,3 +1,4 @@
+#Exercise 1
 import json
 with open('precipitation.json') as f:
     precipitation_list = json.load(f)
@@ -22,10 +23,8 @@ import json
 with open("seattle.json", "w") as file:
   json.dump( rainfall_per_month, file, indent =4, sort_keys = True )
 
-#relative rainfall per month compared to year
-#lets try first for seattle, I only had time to make fractions out of it
+#relative rainfall per month compared to year, Exercise 2 part 2
 relative_rainfall = []
 for i in range(12): 
     print(rainfall_per_month[i]/rainfall_per_year)
-
 print(relative_rainfall)
